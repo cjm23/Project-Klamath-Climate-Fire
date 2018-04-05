@@ -1,0 +1,29 @@
+LandisData  Scenario
+
+Duration  100
+
+Species   Species.txt
+
+Ecoregions      Ecoregions.txt
+EcoregionsMap     M_ESIMP_270M_simplified.asc
+
+CellLength  270 << meters (7.29 ha)
+
+>> Succession Extension    	 Initialization File
+>> --------------------     	-------------------
+   "NECN Succession"   	 century-succession-base_v17.txt  
+
+>> Disturbance Extensions  	 Initialization File
+>> ----------------------   	-------------------
+   "Dynamic Biomass Fuels"	Dynamic_Biomass_Fuels.txt
+   "Dynamic Fire System"	Dynamic_Fire_E4_270m.txt
+>>   "Biomass Harvest"	        output-biom-harvest_v9.txt
+
+>> Other Extensions         	Initialization File
+>> ----------------         	-------------------
+    "Output Biomass"    	output-biomass.txt
+   "Output Biomass-by-Age"	output-biomass-by-age.txt
+   "Output Cohort Statistics"	output-cohort-stats.txt
+   "Output Biomass Reclass"	output_BiomassReclass.txt	
+
+>> RandomNumberSeed 3333
