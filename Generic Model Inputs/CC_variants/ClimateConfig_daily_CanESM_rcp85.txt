@@ -1,0 +1,11 @@
+LandisData "Climate Config"				
+		
+
+ClimateTimeSeries			Daily_SequencedYears
+ClimateFile				"CanESM2_rcp85.csv"
+ClimateFileFormat			Daily_Temp-C_Precip-mmDay
+
+SpinUpClimateTimeSeries			Daily_SequencedYears
+SpinUpClimateFile			"Mauer_120915_v1_daily.csv"
+SpinUpClimateFileFormat			Daily_Temp-C_Precip-mmDay
+
