@@ -1,0 +1,51 @@
+LandisData  "Dynamic Biomass Fuels"
+
+Timestep  1
+
+>> Species Fuel Coefficients (default value 1 if not listed)
+>> 		 Fuel 
+>> Species 	 Coefficient 
+>> -------- 	 ----------- 
+
+HardwoodMaximum 15 << required
+
+DeadFirMaxAge 25 << required
+
+FuelTypes
+
+>> Fuel Base	Age Range	Species
+>> Type	Type
+>> ---  ------	---------	----------------------------------------
+   1	Conifer	0 to 40		ABGRC ABPRSH CADE27 PSME 
+   2	Conifer	41 to 80	ABGRC ABPRSH CADE27 PSME 
+   3	Conifer	81 to 3000	ABGRC ABPRSH CADE27 PSME 
+
+   4	Conifer	0 to 40		PILA PIMO3 PIPO << young pine 
+   5	Conifer	41 to 80	PILA PIMO3 PIPO << mid-aged pine 
+   6	Conifer	81 to 1500	PILA PIMO3 PIPO << old pine 
+
+>>  10	Deciduous 0 to 40	ACMA3 ALRU2 
+>>  11	Deciduous 41 to 1000	ACMA3 ALRU2 
+
+  12	Deciduous 0 to 1000	ARME CHCH7 LIDE3 QUCH2 QUGA4 QUKE 
+
+  13	Conifer  0 to 1000	FX_Resp_Deciduous FX_Seed_Deciduous NoFX_Resp_Deciduous NoFX_Seed_Deciduous 
+  14	Conifer  0 to 1000	FX_Seed_Evergreen NoFX_Resp_Evergreen NoFX_Seed_Evergreen 
+ 
+
+
+DisturbanceConversionTable
+   90		10		RxFire
+   90		4		Pre_Comthin
+   90		6		FireRisk-LightThinning
+   91		15		MxFire
+   91		8		Comthin
+   91		10		FireRisk-ModerateThinning
+
+
+MapFileNames		DFFS-output/FuelType-{timestep}.img  
+
+
+PctConiferFileName fire/PctConifer-{timestep}.img
+
+PctDeadFirFileName fire/PctDeadFir-{timestep}.img

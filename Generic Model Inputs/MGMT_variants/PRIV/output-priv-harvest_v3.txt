@@ -1,0 +1,150 @@
+LandisData "Biomass Harvest"  <<edited 4/22
+
+Timestep 5
+ManagementAreas "./E4_priv_own_v5.tif"
+Stands	"./E4_privat_stands_v2.tif"
+
+>> -----------------------------------------
+>> PRESCRIPTIONS
+
+Prescription    PNIF
+	StandRanking Economic
+>> Species Economic Rank Minimum Age
+>> ------- ------------- -----------
+PSME	75	40
+    SiteSelection   CompleteStandSpread 20 20 
+    CohortsRemoved  ClearCut
+    Plant PSME 
+
+Prescription    Tribal
+	StandRanking Economic
+>> Species Economic Rank Minimum Age
+>> ------- ------------- -----------
+PSME	75	40
+    SiteSelection   CompleteStandSpread 20 20 
+    CohortsRemoved  SpeciesList
+>> Species Cohorts removed
+>> ------- ---------
+PSME	1-200
+PIPO	1-200
+CADE27	1-200
+ABGRC	1-200
+ABPRSH	1-200
+LIDE3	1-200
+ARME	All
+CHCH7	All
+QUCH2	All
+>>ACMA3	50-120
+>>ALRU2	50-120
+FX_Resp_Deciduous	All
+FX_Seed_Deciduous	All
+FX_Seed_Evergreen	All
+NoFX_Resp_Deciduous	All
+NoFX_Resp_Evergreen	All
+NoFX_Seed_Deciduous	All
+NoFX_Seed_Evergreen	All  
+Plant PSME
+
+Prescription    PIF
+StandRanking Economic
+>> Species Economic Rank Minimum Age
+>> ------- ------------- -----------
+PSME	75	40
+CADE27	65	40
+ABGRC	55	45
+    SiteSelection   CompleteStandSpread 40 40 
+    CohortsRemoved  ClearCut
+Plant PSME    
+
+>>Prescription    Salvage_plant
+>>  StandRanking	MaxCohortAge
+>>  SiteSelection	Complete	
+>>  MinTimeSinceDamage 1
+>>  CohortsRemoved SpeciesList
+>> Species Cohorts removed
+>> ------- ---------
+>>FX_Resp_Evergreen	All
+
+>>Plant PSME CADE27
+
+Prescription    Pre_Comthin
+    StandRanking    MaxCohortAge
+    MaximumAge	20
+    MinimumTimeSinceLastHarvest	15
+    SiteSelection   CompleteStandSpread 45 45 
+    CohortsRemoved  SpeciesList
+>> Species Cohorts removed
+>> ------- ---------
+PSME	1-15 (50%)
+ABGRC	1-15 (50%)
+CADE27	1-15 (50%)
+ABPRSH  1-15 (50%)
+PIPO	1-15 (50%)
+PILA	1-15 (50%)
+LIDE3	1-15 (50%)
+ARME	All
+CHCH7	All
+QUCH2	All
+QUKE	All
+QUGA4	All
+>>ALRU2	1-20
+>>ACMA3	1-20
+FX_Resp_Deciduous	All
+FX_Seed_Deciduous	All
+FX_Seed_Evergreen	All
+NoFX_Resp_Deciduous	All
+NoFX_Resp_Evergreen	All
+NoFX_Seed_Deciduous	All
+NoFX_Seed_Evergreen	All
+
+
+Prescription    Comthin
+    StandRanking    MaxCohortAge
+    MaximumAge	35
+    MinimumTimeSinceLastHarvest	10
+    SiteSelection   CompleteStandSpread 45 45 
+    CohortsRemoved  SpeciesList
+>> Species Cohorts removed
+>> ------- ---------
+PSME	1-35 (25%)
+ABGRC	1-35 (25%)
+CADE27	1-35 (25%)
+ABPRSH  1-35 (25%)
+PIPO	1-35 (25%)
+LIDE3	1-35 (25%)
+ARME	All
+CHCH7	All
+QUCH2	All
+QUKE	All
+QUGA4	All
+>>ALRU2	All
+>>ACMA3	All
+FX_Resp_Deciduous	All
+FX_Seed_Deciduous	All
+FX_Seed_Evergreen	All
+NoFX_Resp_Deciduous	All
+NoFX_Resp_Evergreen	All
+NoFX_Seed_Deciduous	All
+NoFX_Seed_Evergreen	All
+
+>>-----------------------------------------------------------------
+>> PRESCRIPTION IMPLEMENTATION 
+
+    HarvestImplementations
+>>  Mgmt Area   Prescription    Harvest Area    Begin Time  End Time
+>>  ---------   ------------    ------------    ----------  --------
+	4	PNIF		1.357%	<<2
+	6	Tribal		1.307%	<<2
+	5	PIF		3.055%	<<4
+	4	Salvage_plant	0.207%	<<2
+	6	Salvage_plant	0.207%	<<2
+	5	Salvage_plant	0.185%	<<4
+	5	Pre_Comthin	3.095%
+	5	Comthin		1.345%
+>>-----------------------------------------------------------------
+>> OUTPUTS
+
+PrescriptionMaps    harvest/prescripts-{timestep}.tif
+BiomassMaps	harvest/biomass-removed-{timestep}.tif
+EventLog            harvest-event-test-log.csv
+SummaryLog	    harvest/summary-log.csv
